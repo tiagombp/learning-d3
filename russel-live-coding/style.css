@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+.grafico-d3 {
+    max-width: 680px;
+    margin: 0 auto;
+    background-color: #0000FF44;
+    padding: 1rem; /* engraçado como quando você coloca esse padding, ele some com a margem de cima (embora a margem
+                      não apareça */
+}
+
+.grafico-d3-titulo {
+    background-color: #FF000044;
+}
+
+.grafico-d3-svg {
+    background-color: #00FF0044;
+}

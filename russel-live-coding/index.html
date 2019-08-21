@@ -9,9 +9,11 @@
 </head>
 <body>
     <div class="grafico-d3">
-        <div class="grafico-d3-inner">
+        <!-- este container vai servir como referência de largura para o svg, para tornar o gráfico responsivo -->
+        <!-- vamos capturar a largura desse container para usar como largura do svg / escala -->
+        <div class="grafico-d3-inner"> 
             <h2 class="grafico-d3-titulo">Gráficos</h2>
-            <svg class="grafico-d3-grafico"></svg>
+            <svg class="grafico-d3-svg"></svg>
         </div>
     </div>
     <script src="https://d3js.org/d3.v5.min.js"></script>
