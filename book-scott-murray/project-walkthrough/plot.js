@@ -15,7 +15,13 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
     console.log(rows[3][0]);
 
     // given all that, let's make a dataset.
+    // its structure will something like this: 
+    // an array of objects, with each element composed of a date property and many "keys" properties,
+    // each key corresponding to a combination of make + model. the value for each of these keys will be
+    // another object, containing the information of make, model, type and sale (for this make+model in this date)
+    
     let dataset = [];
+
 
     // loop along the rows, skipping the first three, which contain only vehicle info, not sales values
 
@@ -53,4 +59,5 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
      } // end of loop through the rows.
 
      console.log(dataset);
-});
+     console.log(typeof(dataset[0]), dataset[0])
+}); // end of promise
