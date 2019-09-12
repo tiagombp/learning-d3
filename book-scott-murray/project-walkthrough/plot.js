@@ -4,6 +4,10 @@ let parseTime = d3.timeParse("%Y-%m")
 
 d3.text("./data/vehicle_sales_data.csv").then(function(text) {
     
+    //
+    // PARSE DATA
+    //
+
     // takes the text and parses it, row by row, as a csv file, converting each row to an array of... comma separated values,
     // thus generating an array of arrays
     let rows = d3.csvParseRows(text);
@@ -58,6 +62,22 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
         } // end of loop through the row's elements
      } // end of loop through the rows.
 
-     console.log(dataset);
-     console.log(typeof(dataset[0]), dataset[0])
+    console.log(dataset);
+    console.log(typeof(dataset[0]), dataset[0])
+
+    //
+    // STACKING
+    //
+
+    // captura as keys de um objeto qualquer na array "Dataset". Aqui estamos usando o primeiro elemento, mas poderia ser qualquer outro
+    // já que os elementos foram construídos de forma que todas as propriedades estão presentes em cada objeto / elemento da array.
+    let keys_completa = Object.keys(dataset[0]);
+
+    console.log(keys_completa);
+
+
+
+
+
+
 }); // end of promise
