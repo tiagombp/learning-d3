@@ -63,7 +63,8 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
      } // end of loop through the rows.
 
     console.log(dataset);
-    console.log(typeof(dataset[0]), dataset[0])
+    console.log(typeof(dataset[0]), dataset[0]);
+    console.log(dataset[0]['Acura ILX'], dataset[0]['Acura ILX'].sales);
 
     //
     // STACKING
@@ -72,8 +73,30 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
     // captura as keys de um objeto qualquer na array "Dataset". Aqui estamos usando o primeiro elemento, mas poderia ser qualquer outro
     // já que os elementos foram construídos de forma que todas as propriedades estão presentes em cada objeto / elemento da array.
     let keys_completa = Object.keys(dataset[0]);
+    let keys = keys_completa.slice(1); // para tirar a data, que aparece na posição 0
 
-    console.log(keys_completa);
+    console.log(keys_completa, keys);
+
+    console.log(keys.map(d => dataset[0][d].sales));
+
+    let sales_nesta_data = 0;
+    let sales_min_data = 0;
+    let sales_max_data = 0;
+    let sales_min = 0;
+    let sales_max = 0;
+
+    for (let i = 0; i < dataset.length; i++) {
+        sales_nesta_data = keys.map(d => dataset[i][d].sales);
+        sales_min_data = d3.min(sales_nesta_data);
+        sales_max_data = d3.max(sales_nesta_data);
+        sales_min = sales_min_data <= sales_min ? sales_min_data : sales_min;
+        sales_max = sales_max_data >= sales_max ? sales_max_data : sales_max;
+        console.log(i, sales_min, sales_max, sales_min_data, sales_max_data);
+    }
+
+    y = d3.scaleLinear()
+      .domain([sales_min, sales_max])
+      .range();
 
 
 
