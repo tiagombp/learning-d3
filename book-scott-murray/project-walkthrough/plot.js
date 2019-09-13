@@ -66,6 +66,14 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
     console.log(typeof(dataset[0]), dataset[0]);
     console.log(dataset[0]['Acura ILX'], dataset[0]['Acura ILX'].sales);
 
+
+    // parâmetros gráfico
+    let h = 500;
+    let w = 900;
+    let padding = 20;
+
+    let $SVG = d3.select('svg.plot');
+
     //
     // STACKING
     //
@@ -96,7 +104,9 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
 
     y = d3.scaleLinear()
       .domain([sales_min, sales_max])
-      .range();
+      .range([h - padding, padding]);
+    
+    
 
 
 
