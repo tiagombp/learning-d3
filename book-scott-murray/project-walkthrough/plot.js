@@ -99,14 +99,23 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
         sales_max_data = d3.max(sales_nesta_data);
         sales_min = sales_min_data <= sales_min ? sales_min_data : sales_min;
         sales_max = sales_max_data >= sales_max ? sales_max_data : sales_max;
-        console.log(i, sales_min, sales_max, sales_min_data, sales_max_data);
+        //console.log(i, sales_min, sales_max, sales_min_data, sales_max_data);
     }
 
-    y = d3.scaleLinear()
+    let dates = dataset.map(d => d.date);
+    console.log("Datas:", dates);
+
+    scale_y = d3.scaleLinear()
       .domain([sales_min, sales_max])
       .range([h - padding, padding]);
     
-    x = d3.scale
+    scale_x = d3.scaleTime()
+      .domain(d3.extent(dates))
+      .range([padding, w - padding]);
+
+    $SVG.selectAll('circle').data(dataset).enter().append('circle')
+      .attr('cx', d => scale_x(d.date))
+      .attr('cy', d => scale_y(d))
 
 
 
