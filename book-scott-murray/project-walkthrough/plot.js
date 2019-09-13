@@ -106,7 +106,7 @@ d3.text("./data/vehicle_sales_data.csv").then(function(text) {
       .domain([sales_min, sales_max])
       .range([h - padding, padding]);
     
-    
+    x = d3.scale
 
 
 
