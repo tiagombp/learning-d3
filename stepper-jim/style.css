@@ -1,0 +1,10 @@
+ul.vis-nav {
+    display: flex;
+    flex-basis: row;
+    justify-content: flex-start;
+}
+
+ul.vis-nav li {
+    list-style-type: none;
+    margin: 0 10px;
+}
