@@ -1,0 +1,8 @@
+Curioso que o problema era a cadeia:
+`d3.selectAll(".meses") .transition(duracao) .attr("opacity", 0); .remove();`. Quando quebrei assim, funcionou:
+
+        d3.selectAll(".meses")
+          .transition(duracao)
+          .attr("opacity", 0);
+        d3.selectAll(".meses")  
+          .remove();
